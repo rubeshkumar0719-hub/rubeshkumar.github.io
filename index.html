@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rubesh — Video Editor</title>
+<meta name="description" content="Rubesh is a freelance video editor focused on YouTube long-form, talking-head content, short-form, storytelling, gaming, promotional content, and basic motion graphics.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Rubesh — Video Editor">
+<meta property="og:description" content="Freelance video editor focused on YouTube long-form, talking-head content, short-form, storytelling, gaming, promotional content, and basic motion graphics.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Ambient background — decorative only, sits behind all content -->
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ambient-bg__base"></div>
+  <div class="ambient-bg__orb ambient-bg__orb--1"></div>
+  <div class="ambient-bg__orb ambient-bg__orb--2"></div>
+  <div class="ambient-bg__orb ambient-bg__orb--3"></div>
+  <div class="ambient-bg__grain"></div>
+</div>
+
+<!-- Scroll-linked timecode readout (desktop signature element) -->
+<div class="timeline-rail" aria-hidden="true">
+  <div class="timeline-rail__track"></div>
+  <div class="timeline-rail__playhead" id="playhead"></div>
+</div>
+<div class="timecode-readout" id="timecodeReadout" aria-hidden="true">00:00:00:00</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="siteNav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__mark">Rubesh</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav__cta">Contact me</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Freelance video editor</p>
+      <h1 class="hero__name">
+        <span class="hero__name-line">RUBESH</span>
+      </h1>
+      <p class="hero__role">Video Editor</p>
+      <p class="hero__tagline">
+        Freelance Video Editor — focused on YouTube long-form, talking-head content, short-form,
+        storytelling, gaming, promotional content, and basic motion graphics.
+      </p>
+      <div class="hero__actions">
+        <a href="#work" class="btn btn--primary">View my work</a>
+        <a href="#contact" class="btn btn--ghost">Contact me</a>
+      </div>
+    </div>
+    <div class="hero__scroll-cue" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="section" id="work">
+    <div class="section__inner">
+      <div class="section__head">
+        <h2>Selected work</h2>
+        <p class="section__sub">
+          A working sample of real client edits, tryout pieces, and self-directed work.
+          Full cuts are hosted on YouTube and Drive — replace any card below with a new project
+          by editing one entry in <code>script.js</code>.
+        </p>
+      </div>
+
+      <div class="work-grid" id="workGrid"><!-- rendered by script.js --></div>
+
+      <div class="work-more">
+        <a href="https://drive.google.com/drive/folders/1gELYybXj_yuTqgtXm9m1BJ4sITygjYiB?usp=sharing" target="_blank" rel="noopener" class="btn btn--ghost">
+          See the full drive archive
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDITING CATEGORIES -->
+  <section class="section section--alt" id="services">
+    <div class="section__inner">
+      <div class="section__head">
+        <h2>What I edit</h2>
+        <p class="section__sub">The formats I work in regularly, each with its own pacing and delivery needs.</p>
+      </div>
+      <div class="categories-grid" id="categoriesGrid"><!-- rendered by script.js --></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section__inner about-layout">
+      <div class="about-copy">
+        <h2>About</h2>
+        <p>
+          Freelance Video Editor with hands-on experience creating engaging long-form and
+          short-form video content across YouTube, storytelling, promotional, gaming,
+          talking-head, and social media formats.
+        </p>
+        <p>
+          Skilled in editing, pacing, storytelling, clip selection, subtitles, sound design,
+          music placement, B-roll, color correction/grading, transitions, and basic motion
+          graphics.
+        </p>
+        <p>
+          Proficient in Premiere Pro, DaVinci Resolve, After Effects, and CapCut, with a strong
+          ability to adapt to different editing styles, references, and client requirements.
+        </p>
+      </div>
+      <div class="about-facts">
+        <dl>
+          <div class="about-facts__row">
+            <dt>Editing since</dt><dd>Early 2025</dd>
+          </div>
+          <div class="about-facts__row">
+            <dt>Full-time role since</dt><dd>March 2026</dd>
+          </div>
+          <div class="about-facts__row">
+            <dt>Main tools</dt><dd>DaVinci Resolve, Premiere Pro</dd>
+          </div>
+          <div class="about-facts__row">
+            <dt>Content types</dt><dd>YouTube, storytelling, promotional, gaming, talking-head, social media formats</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS / SOFTWARE -->
+  <section class="section section--alt" id="skills">
+    <div class="section__inner">
+      <div class="section__head">
+        <h2>Skills &amp; software</h2>
+        <p class="section__sub">What I use daily, and where I'm still building depth.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skills-block">
+          <h3>Editing</h3>
+          <ul class="tag-list">
+            <li>Pacing &amp; rhythm</li>
+            <li>Rough cuts &amp; trimming</li>
+            <li>Clip selection</li>
+            <li>Shorts from long-form</li>
+            <li>Subtitles &amp; captions</li>
+            <li>Memes &amp; GIFs</li>
+            <li>SFX &amp; music placement</li>
+            <li>Zooms &amp; emphasis</li>
+            <li>Color correction &amp; grading</li>
+          </ul>
+        </div>
+
+        <div class="skills-block">
+          <h3>Motion graphics <span class="skills-block__note">basic – intermediate</span></h3>
+          <ul class="tag-list">
+            <li>Typography animation</li>
+            <li>Line &amp; bar charts</li>
+            <li>Pie charts</li>
+            <li>Map marking</li>
+            <li>Object highlighting</li>
+            <li>Bounce animations</li>
+            <li>Liquid glass elements</li>
+            <li>Reusable templates</li>
+          </ul>
+          <p class="skills-block__caveat">Working knowledge of typography and data-driven animation — I build each new technique into a reusable template for future projects.</p>
+        </div>
+
+        <div class="skills-block">
+          <h3>Software</h3>
+          <ul class="software-list">
+            <li>Adobe Premiere Pro</li>
+            <li>DaVinci Resolve Studio</li>
+            <li>Adobe After Effects</li>
+            <li>CapCut</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WORK WITH ME -->
+  <section class="section" id="why">
+    <div class="section__inner">
+      <div class="section__head">
+        <h2>Why work with me</h2>
+        <p class="section__sub">Selected work from freelance projects, client collaborations, and independent portfolio pieces.</p>
+      </div>
+      <div class="why-grid" id="whyGrid"><!-- rendered by script.js --></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--contact" id="contact">
+    <div class="section__inner contact-layout">
+      <div class="contact-copy">
+        <h2>Let's work together</h2>
+        <p>
+          Send over your footage, a brief, or just what you need edited — I'll reply with a
+          straight answer on fit, timeline, and rate.
+        </p>
+      </div>
+      <div class="contact-links" id="contactLinks"><!-- rendered by script.js --></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span>Rubesh — Video Editor</span>
+    <span id="footerYear"></span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
