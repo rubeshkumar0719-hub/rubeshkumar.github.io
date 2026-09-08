@@ -106,6 +106,15 @@ const PROJECTS = [
     videoUrl: "https://drive.google.com/file/d/1amWFFC4UG5_bDHAywLm9sl4UaeVfH2O_/view?usp=sharing",
     accentA: "#1E1B12",
     accentB: "#0F1013"
+  },
+  {
+    title: "Adrena Sports Agency Launch Video",
+    category: "Promotional",
+    tag: "LAUNCH",
+    description: "A launch announcement edit for a sports agency, cut for a confident, high-energy first impression.",
+    videoUrl: "https://drive.google.com/file/d/1-1K-lgNjC5k3Fa2Mhut4BqsuGvw_eJ4u/view?usp=drive_link",
+    accentA: "#221912",
+    accentB: "#0F1013"
   }
 ];
 
