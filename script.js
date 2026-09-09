@@ -229,12 +229,55 @@ const ICONS = {
 /* ---------------------------------------------------------------
    Render helpers
    --------------------------------------------------------------- */
+
+/* Real thumbnail extraction — pulls an actual preview frame from
+   YouTube/Drive links when possible. Falls back cleanly to the
+   gradient placeholder if the image can't be loaded. */
+function getYouTubeId(url){
+  const patterns = [
+    /youtu\.be\/([a-zA-Z0-9_-]{6,})/,
+    /youtube\.com\/watch\?v=([a-zA-Z0-9_-]{6,})/,
+    /youtube\.com\/shorts\/([a-zA-Z0-9_-]{6,})/
+  ];
+  for (const p of patterns){
+    const m = url.match(p);
+    if (m) return m[1];
+  }
+  return null;
+}
+function getDriveId(url){
+  const m = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  return m ? m[1] : null;
+}
+function getThumbnail(url){
+  const yt = getYouTubeId(url);
+  if (yt) return {
+    src: `https://img.youtube.com/vi/${yt}/maxresdefault.jpg`,
+    fallback: `https://img.youtube.com/vi/${yt}/hqdefault.jpg`
+  };
+  const drive = getDriveId(url);
+  if (drive) return {
+    src: `https://drive.google.com/thumbnail?id=${drive}&sz=w1000`,
+    fallback: null
+  };
+  return null;
+}
+
 function renderProjectCard(p){
   const isPlaceholder = p.videoUrl.startsWith("PLACEHOLDER");
   const href = isPlaceholder ? "https://drive.google.com/drive/folders/1gELYybXj_yuTqgtXm9m1BJ4sITygjYiB?usp=sharing" : p.videoUrl;
+  const thumb = isPlaceholder ? null : getThumbnail(p.videoUrl);
+  const imgHtml = thumb
+    ? `<img class="project-card__thumb-img" src="${thumb.src}" alt="" loading="lazy" referrerpolicy="no-referrer"
+         onerror="${thumb.fallback
+           ? `this.onerror=function(){this.remove()};this.src='${thumb.fallback}';`
+           : `this.remove();`}">`
+    : "";
   return `
   <article class="project-card" data-reveal>
     <a href="${href}" target="_blank" rel="noopener" class="project-card__thumb" style="--thumb-a:${p.accentA};--thumb-b:${p.accentB}">
+      ${imgHtml}
+      <span class="project-card__thumb-overlay"></span>
       <span class="project-card__tag">${p.tag}</span>
       <span class="project-card__play">${ICONS.play}</span>
     </a>
@@ -345,6 +388,22 @@ function renderContact(){
       setTimeout(() => { label.textContent = original; }, 1800);
     });
   });
+}
+
+/* ---------------------------------------------------------------
+   Ambient background parallax — subtle drift toward the cursor
+   --------------------------------------------------------------- */
+function initAmbientParallax(){
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  const ambient = document.querySelector(".ambient-bg");
+  if (!ambient) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  window.addEventListener("mousemove", (e) => {
+    const mx = (e.clientX / window.innerWidth - 0.5) * 2;
+    const my = (e.clientY / window.innerHeight - 0.5) * 2;
+    ambient.style.transform = `translate3d(${mx * 16}px, ${my * 16}px, 0)`;
+  }, { passive: true });
 }
 
 /* ---------------------------------------------------------------
@@ -524,6 +583,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initTimelineRail();
   initCustomCursor();
+  initAmbientParallax();
   initMagneticButtons();
   initScrollReveal();
   initNavHighlight();
