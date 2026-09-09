@@ -229,33 +229,67 @@ const ICONS = {
 /* ---------------------------------------------------------------
    Render helpers
    --------------------------------------------------------------- */
+function renderProjectCard(p){
+  const isPlaceholder = p.videoUrl.startsWith("PLACEHOLDER");
+  const href = isPlaceholder ? "https://drive.google.com/drive/folders/1gELYybXj_yuTqgtXm9m1BJ4sITygjYiB?usp=sharing" : p.videoUrl;
+  return `
+  <article class="project-card" data-reveal>
+    <a href="${href}" target="_blank" rel="noopener" class="project-card__thumb" style="--thumb-a:${p.accentA};--thumb-b:${p.accentB}">
+      <span class="project-card__tag">${p.tag}</span>
+      <span class="project-card__play">${ICONS.play}</span>
+    </a>
+    <div class="project-card__body">
+      <p class="project-card__category">${p.category}</p>
+      <h3 class="project-card__title">${p.title}</h3>
+      <p class="project-card__desc">${p.description}</p>
+      <a href="${href}" target="_blank" rel="noopener" class="project-card__watch">
+        ${isPlaceholder ? "View in archive" : "Watch"} ${ICONS.external}
+      </a>
+    </div>
+  </article>`;
+}
+
+// Display order for grouping the work section by category.
+// A category only renders a heading if at least one project has it.
+const WORK_CATEGORY_ORDER = [
+  "YouTube Long-form",
+  "Talking-head Content",
+  "Short-form",
+  "Storytelling",
+  "Gaming",
+  "Promotional",
+  "Basic Motion Graphics"
+];
+
 function renderProjects(){
   const grid = document.getElementById("workGrid");
-  grid.innerHTML = PROJECTS.map(p => {
-    const isPlaceholder = p.videoUrl.startsWith("PLACEHOLDER");
-    const href = isPlaceholder ? "https://drive.google.com/drive/folders/1gELYybXj_yuTqgtXm9m1BJ4sITygjYiB?usp=sharing" : p.videoUrl;
-    return `
-    <article class="project-card">
-      <a href="${href}" target="_blank" rel="noopener" class="project-card__thumb" style="--thumb-a:${p.accentA};--thumb-b:${p.accentB}">
-        <span class="project-card__tag">${p.tag}</span>
-        <span class="project-card__play">${ICONS.play}</span>
-      </a>
-      <div class="project-card__body">
-        <p class="project-card__category">${p.category}</p>
-        <h3 class="project-card__title">${p.title}</h3>
-        <p class="project-card__desc">${p.description}</p>
-        <a href="${href}" target="_blank" rel="noopener" class="project-card__watch">
-          ${isPlaceholder ? "View in archive" : "Watch"} ${ICONS.external}
-        </a>
+
+  const groups = WORK_CATEGORY_ORDER
+    .map(cat => ({ category: cat, items: PROJECTS.filter(p => p.category === cat) }))
+    .filter(g => g.items.length > 0);
+
+  // Any project whose category isn't in the display order still gets shown,
+  // grouped under its own heading, appended after the ordered groups.
+  const knownCategories = new Set(WORK_CATEGORY_ORDER);
+  const leftoverCategories = [...new Set(PROJECTS.map(p => p.category).filter(c => !knownCategories.has(c)))];
+  leftoverCategories.forEach(cat => {
+    groups.push({ category: cat, items: PROJECTS.filter(p => p.category === cat) });
+  });
+
+  grid.innerHTML = groups.map(g => `
+    <div class="work-group">
+      <p class="work-group__title">${g.category}</p>
+      <div class="work-group__grid">
+        ${g.items.map(renderProjectCard).join("")}
       </div>
-    </article>`;
-  }).join("");
+    </div>
+  `).join("");
 }
 
 function renderCategories(){
   const grid = document.getElementById("categoriesGrid");
   grid.innerHTML = CATEGORIES.map(c => `
-    <div class="category-card">
+    <div class="category-card" data-reveal>
       <div class="category-card__icon">${ICONS[c.icon]}</div>
       <h3 class="category-card__title">${c.title}</h3>
       <p class="category-card__desc">${c.desc}</p>
@@ -266,7 +300,7 @@ function renderCategories(){
 function renderWhy(){
   const grid = document.getElementById("whyGrid");
   grid.innerHTML = WHY.map(w => `
-    <div class="why-item">
+    <div class="why-item" data-reveal>
       <div class="why-item__icon">${ICONS[w.icon]}</div>
       <h3 class="why-item__title">${w.title}</h3>
       <p class="why-item__desc">${w.desc}</p>
@@ -311,6 +345,111 @@ function renderContact(){
       setTimeout(() => { label.textContent = original; }, 1800);
     });
   });
+}
+
+/* ---------------------------------------------------------------
+   Custom cursor (desktop pointer devices only)
+   --------------------------------------------------------------- */
+function initCustomCursor(){
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+  const dot = document.getElementById("cursorDot");
+  const ring = document.getElementById("cursorRing");
+  if (!dot || !ring) return;
+
+  document.body.classList.add("has-custom-cursor");
+
+  let ringX = window.innerWidth / 2, ringY = window.innerHeight / 2;
+  let targetX = ringX, targetY = ringY;
+
+  window.addEventListener("mousemove", (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+    dot.style.transform = `translate(${targetX}px, ${targetY}px) translate(-50%, -50%)`;
+  });
+
+  function animateRing(){
+    ringX += (targetX - ringX) * 0.18;
+    ringY += (targetY - ringY) * 0.18;
+    ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  const hoverTargets = "a, button, .btn, [data-copy]";
+  document.addEventListener("mouseover", (e) => {
+    if (e.target.closest(hoverTargets)) ring.classList.add("is-hover");
+  });
+  document.addEventListener("mouseout", (e) => {
+    if (e.target.closest(hoverTargets)) ring.classList.remove("is-hover");
+  });
+}
+
+/* ---------------------------------------------------------------
+   Magnetic buttons — nudge toward the cursor within a small radius
+   --------------------------------------------------------------- */
+function initMagneticButtons(){
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+  document.querySelectorAll(".btn").forEach(btn => {
+    btn.addEventListener("mousemove", (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.22}px, ${y * 0.28}px)`;
+    });
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "";
+    });
+  });
+}
+
+/* ---------------------------------------------------------------
+   Scroll reveal — fades/rises elements marked [data-reveal] into view
+   --------------------------------------------------------------- */
+function initScrollReveal(){
+  const targets = document.querySelectorAll("[data-reveal]");
+  if (!targets.length) return;
+
+  if (!("IntersectionObserver" in window)){
+    targets.forEach(t => t.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+
+  targets.forEach(t => observer.observe(t));
+}
+
+/* ---------------------------------------------------------------
+   Nav active-section highlight
+   --------------------------------------------------------------- */
+function initNavHighlight(){
+  const sections = document.querySelectorAll("main section[id]");
+  const links = document.querySelectorAll(".nav__links a");
+  if (!sections.length || !links.length || !("IntersectionObserver" in window)) return;
+
+  const linkFor = id => [...links].find(a => a.getAttribute("href") === `#${id}`);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = linkFor(entry.target.id);
+      if (!link) return;
+      if (entry.isIntersecting) {
+        links.forEach(a => a.classList.remove("is-active"));
+        link.classList.add("is-active");
+      }
+    });
+  }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+
+  sections.forEach(s => observer.observe(s));
 }
 
 /* ---------------------------------------------------------------
@@ -384,6 +523,10 @@ document.addEventListener("DOMContentLoaded", () => {
   renderContact();
   initNav();
   initTimelineRail();
+  initCustomCursor();
+  initMagneticButtons();
+  initScrollReveal();
+  initNavHighlight();
 
   const yearEl = document.getElementById("footerYear");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());

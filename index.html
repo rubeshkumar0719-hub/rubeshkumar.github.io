@@ -25,6 +25,7 @@
   <div class="ambient-bg__orb ambient-bg__orb--1"></div>
   <div class="ambient-bg__orb ambient-bg__orb--2"></div>
   <div class="ambient-bg__orb ambient-bg__orb--3"></div>
+  <div class="ambient-bg__vignette"></div>
   <div class="ambient-bg__grain"></div>
 </div>
 
@@ -36,6 +37,10 @@
 <div class="timecode-readout" id="timecodeReadout" aria-hidden="true">00:00:00:00</div>
 
 <a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Custom cursor (desktop pointer devices only, see script.js) -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
 <header class="nav" id="siteNav">
   <div class="nav__inner">
@@ -89,7 +94,7 @@
   <!-- SELECTED WORK -->
   <section class="section" id="work">
     <div class="section__inner">
-      <div class="section__head">
+      <div class="section__head" data-reveal>
         <h2>Selected work</h2>
         <p class="section__sub">
           A working sample of real client edits, tryout pieces, and self-directed work.
@@ -122,7 +127,7 @@
   <!-- ABOUT -->
   <section class="section" id="about">
     <div class="section__inner about-layout">
-      <div class="about-copy">
+      <div class="about-copy" data-reveal>
         <h2>About</h2>
         <p>
           Freelance Video Editor with hands-on experience creating engaging long-form and
@@ -139,7 +144,7 @@
           ability to adapt to different editing styles, references, and client requirements.
         </p>
       </div>
-      <div class="about-facts">
+      <div class="about-facts" data-reveal>
         <dl>
           <div class="about-facts__row">
             <dt>Editing since</dt><dd>Early 2025</dd>
@@ -167,7 +172,7 @@
       </div>
 
       <div class="skills-grid">
-        <div class="skills-block">
+        <div class="skills-block" data-reveal>
           <h3>Editing</h3>
           <ul class="tag-list">
             <li>Pacing &amp; rhythm</li>
@@ -182,7 +187,7 @@
           </ul>
         </div>
 
-        <div class="skills-block">
+        <div class="skills-block" data-reveal>
           <h3>Motion graphics <span class="skills-block__note">basic – intermediate</span></h3>
           <ul class="tag-list">
             <li>Typography animation</li>
@@ -197,7 +202,7 @@
           <p class="skills-block__caveat">Working knowledge of typography and data-driven animation — I build each new technique into a reusable template for future projects.</p>
         </div>
 
-        <div class="skills-block">
+        <div class="skills-block" data-reveal>
           <h3>Software</h3>
           <ul class="software-list">
             <li>Adobe Premiere Pro</li>
@@ -224,14 +229,14 @@
   <!-- CONTACT -->
   <section class="section section--contact" id="contact">
     <div class="section__inner contact-layout">
-      <div class="contact-copy">
+      <div class="contact-copy" data-reveal>
         <h2>Let's work together</h2>
         <p>
           Send over your footage, a brief, or just what you need edited — I'll reply with a
           straight answer on fit, timeline, and rate.
         </p>
       </div>
-      <div class="contact-links" id="contactLinks"><!-- rendered by script.js --></div>
+      <div class="contact-links" id="contactLinks" data-reveal><!-- rendered by script.js --></div>
     </div>
   </section>
 
