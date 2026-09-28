@@ -115,6 +115,96 @@ const PROJECTS = [
     videoUrl: "https://drive.google.com/file/d/1-1K-lgNjC5k3Fa2Mhut4BqsuGvw_eJ4u/view?usp=drive_link",
     accentA: "#221912",
     accentB: "#0F1013"
+  },
+  {
+    title: "Commentary Long-form",
+    category: "Commentary",
+    tag: "COMMENTARY",
+    description: "A commentary-style long-form edit — pacing and visuals built to carry the narration.",
+    videoUrl: "https://drive.google.com/file/d/1lGZLLwudqf7YhrNXOdx-PGxKNU8qnulS/view?usp=drive_link",
+    accentA: "#1A1C22",
+    accentB: "#0F1013"
+  },
+  {
+    title: "Podcast Long-form — Prakhar Jain",
+    category: "Podcast",
+    tag: "PODCAST",
+    description: "A full-length podcast episode edit — clean cuts and steady pacing for a conversation-led format.",
+    videoUrl: "https://drive.google.com/file/d/1HfHfi0wyCYKInnTJMgDyaLWAjUxUgd4f/view?usp=sharing",
+    accentA: "#1D1A16",
+    accentB: "#0F1013"
+  },
+  {
+    title: "Podcast Short 01",
+    category: "Podcast",
+    tag: "PODCAST SHORT",
+    description: "A vertical clip cut from a long-form podcast episode.",
+    videoUrl: "https://drive.google.com/file/d/1TBjoFGWOEXkEoP2209KYT4kvtpTVjf4R/view?usp=sharing",
+    accentA: "#1B1B21",
+    accentB: "#0F1013"
+  },
+  {
+    title: "Podcast Short 02",
+    category: "Podcast",
+    tag: "PODCAST SHORT",
+    description: "A vertical clip cut from a long-form podcast episode.",
+    videoUrl: "https://drive.google.com/file/d/1EfXA7VaT-ut2Zf19ktAswbg4MVgPpl_T/view?usp=sharing",
+    accentA: "#1C1A1E",
+    accentB: "#0F1013"
+  },
+  {
+    title: "Podcast Short 03",
+    category: "Podcast",
+    tag: "PODCAST SHORT",
+    description: "A vertical clip cut from a long-form podcast episode.",
+    videoUrl: "https://drive.google.com/file/d/1fOM-1gEvFMAIxpxqiyuOJyK7ifBjVyKX/view?usp=sharing",
+    accentA: "#1A1D1F",
+    accentB: "#0F1013"
+  },
+  {
+    title: "Podcast Short 04",
+    category: "Podcast",
+    tag: "PODCAST SHORT",
+    description: "A vertical clip cut from a long-form podcast episode.",
+    videoUrl: "https://drive.google.com/file/d/1X-Yie7KMJd9kq4Be3wOoEKzMpd-wvkrW/view?usp=sharing",
+    accentA: "#1E1B19",
+    accentB: "#0F1013"
+  },
+  {
+    title: "Podcast Short 05",
+    category: "Podcast",
+    tag: "PODCAST SHORT",
+    description: "A vertical clip cut from a long-form podcast episode.",
+    videoUrl: "https://drive.google.com/file/d/11ZdkuClyGrAiMJsXuFBP01F1yX4k_6z1/view?usp=sharing",
+    accentA: "#1B1C20",
+    accentB: "#0F1013"
+  },
+  {
+    title: "Finance Podcast Short",
+    category: "Podcast",
+    tag: "PODCAST SHORT",
+    description: "A short-form clip cut from a finance podcast.",
+    videoUrl: "https://drive.google.com/file/d/1wqjGXT_GpWd3MVX70okxaBrNDuNbCfJu/view?usp=sharing",
+    accentA: "#1D1B14",
+    accentB: "#0F1013"
+  },
+  {
+    title: "Documentary Sample Edit",
+    category: "Documentary",
+    tag: "DOCUMENTARY",
+    description: "A documentary-style sample edit — structure, pacing and clip selection for a narrative piece.",
+    videoUrl: "https://drive.google.com/file/d/1DsyR6sT-4s55rpTNXn6JQs-QyfTYFXkK/view?usp=sharing",
+    accentA: "#191C1E",
+    accentB: "#0F1013"
+  },
+  {
+    title: "Fashion Designer Ad Promo",
+    category: "Promotional",
+    tag: "AD PROMO",
+    description: "An ad promo edit for a fashion designer.",
+    videoUrl: "https://drive.google.com/file/d/1-OdsoKFI1NZYiIke00F-CniCgD7iBuyt/view?usp=sharing",
+    accentA: "#21191A",
+    accentB: "#0F1013"
   }
 ];
 
@@ -295,6 +385,9 @@ function renderProjectCard(p){
 // Display order for grouping the work section by category.
 // A category only renders a heading if at least one project has it.
 const WORK_CATEGORY_ORDER = [
+  "Commentary",
+  "Podcast",
+  "Documentary",
   "YouTube Long-form",
   "Talking-head Content",
   "Short-form",
