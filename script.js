@@ -127,56 +127,11 @@ const PROJECTS = [
   },
   {
     title: "Podcast Long-form — Prakhar Jain",
-    category: "Podcast",
+    category: "Podcast Long-form",
     tag: "PODCAST",
     description: "A full-length podcast episode edit — clean cuts and steady pacing for a conversation-led format.",
     videoUrl: "https://drive.google.com/file/d/1HfHfi0wyCYKInnTJMgDyaLWAjUxUgd4f/view?usp=sharing",
     accentA: "#1D1A16",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Podcast Short 01",
-    category: "Podcast",
-    tag: "PODCAST SHORT",
-    description: "A vertical clip cut from a long-form podcast episode.",
-    videoUrl: "https://drive.google.com/file/d/1TBjoFGWOEXkEoP2209KYT4kvtpTVjf4R/view?usp=sharing",
-    accentA: "#1B1B21",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Podcast Short 02",
-    category: "Podcast",
-    tag: "PODCAST SHORT",
-    description: "A vertical clip cut from a long-form podcast episode.",
-    videoUrl: "https://drive.google.com/file/d/1EfXA7VaT-ut2Zf19ktAswbg4MVgPpl_T/view?usp=sharing",
-    accentA: "#1C1A1E",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Podcast Short 03",
-    category: "Podcast",
-    tag: "PODCAST SHORT",
-    description: "A vertical clip cut from a long-form podcast episode.",
-    videoUrl: "https://drive.google.com/file/d/1fOM-1gEvFMAIxpxqiyuOJyK7ifBjVyKX/view?usp=sharing",
-    accentA: "#1A1D1F",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Podcast Short 04",
-    category: "Podcast",
-    tag: "PODCAST SHORT",
-    description: "A vertical clip cut from a long-form podcast episode.",
-    videoUrl: "https://drive.google.com/file/d/1X-Yie7KMJd9kq4Be3wOoEKzMpd-wvkrW/view?usp=sharing",
-    accentA: "#1E1B19",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Podcast Short 05",
-    category: "Podcast",
-    tag: "PODCAST SHORT",
-    description: "A vertical clip cut from a long-form podcast episode.",
-    videoUrl: "https://drive.google.com/file/d/11ZdkuClyGrAiMJsXuFBP01F1yX4k_6z1/view?usp=sharing",
-    accentA: "#1B1C20",
     accentB: "#0F1013"
   },
   {
@@ -394,7 +349,8 @@ const WORK_CATEGORY_ORDER = [
   "Storytelling",
   "Gaming",
   "Promotional",
-  "Basic Motion Graphics"
+  "Basic Motion Graphics",
+  "Podcast Long-form"
 ];
 
 function renderProjects(){
