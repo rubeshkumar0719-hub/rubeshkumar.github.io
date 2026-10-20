@@ -1,642 +1,184 @@
-/* ===================================================================
-   RUBESH — PORTFOLIO CONTENT & BEHAVIOUR
-
-   To add/replace a project: edit the PROJECTS array below.
-   Each entry only needs a title, category, description, videoUrl,
-   and an optional tag (shown top-left on the thumbnail placeholder).
-   No HTML/CSS editing required.
-   =================================================================== */
-
+/* Portfolio content and interactions. Working titles can be refined later. */
 const PROJECTS = [
-  {
-    title: "YouTube Long-form 01",
-    category: "YouTube Long-form",
-    tag: "LONG-FORM",
-    description: "Raw footage trimmed and paced into a finished long-form upload for a recurring client.",
-    videoUrl: "https://youtu.be/47-zQqrxH3I?si=oYnKMwdPvjP3Jiq4",
-    accentA: "#211A10",
-    accentB: "#0F1013"
-  },
-  {
-    title: "YouTube Long-form 02",
-    category: "YouTube Long-form",
-    tag: "LONG-FORM",
-    description: "Second sample from the same channel — clip selection, pacing, and subtitle work.",
-    videoUrl: "https://youtu.be/bSuAW1v_Ai0?si=kK89qPqPdcs6YVQL",
-    accentA: "#1B1D22",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Gaming Tryout 01",
-    category: "Gaming",
-    tag: "GAMING",
-    description: "Roughly two hours of co-op gameplay footage cut into a memes-and-highlights reel for a team tryout.",
-    videoUrl: "https://drive.google.com/file/d/131TOOeGxyLYL03hfvVh4wf0HcX2TSDq4/view?usp=sharing",
-    accentA: "#1E1712",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Gaming Tryout 02",
-    category: "Gaming",
-    tag: "GAMING",
-    description: "A second highlight cut from the same gameplay footage, built for a different team tryout.",
-    videoUrl: "https://drive.google.com/file/d/1aJuEj3DR-NHDQKq-rLRyzkE_s9aiq0cT/view?usp=sharing",
-    accentA: "#191B1F",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Book Launch Promo",
-    category: "Promotional",
-    tag: "PROMO",
-    description: "Vertical and square deliverables cut for a book launch campaign across Instagram, Facebook, and YouTube.",
-    videoUrl: "https://drive.google.com/file/d/1eilxrwad1MrZW00Mj4YBF1jhraYfBjHs/view?usp=sharing",
-    accentA: "#201A12",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Short Form 01",
-    category: "Short-form",
-    tag: "SHORT",
-    description: "A long-form moment re-cut for vertical, built for the first three seconds to hold attention.",
-    videoUrl: "https://youtube.com/shorts/GWRE3Srp-mQ?si=VkOuCBjGJEqeHeD2",
-    accentA: "#191D1B",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Short Form 02",
-    category: "Short-form",
-    tag: "SHORT",
-    description: "A second vertical cut, paced for a fast scroll-stopping open and a quick payoff.",
-    videoUrl: "https://youtube.com/shorts/XA99a1K5eko?si=lAJG_bBnJ2t0mQXa",
-    accentA: "#1D1712",
-    accentB: "#0F1013"
-  },
-  {
-    title: "What I Actually Do to a Talking-Head Video",
-    category: "Talking-head Content",
-    tag: "BEFORE/AFTER",
-    description: "A before-and-after breakdown of a talking-head edit for a long-form channel — raw footage next to the finished cut.",
-    videoUrl: "https://drive.google.com/file/d/1s5nn0X3IuV5ZF8bIeX5_lSoFD0fnQEGw/view?usp=sharing",
-    accentA: "#1C1E20",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Mystery Video 1",
-    category: "Storytelling",
-    tag: "AI-GENERATED",
-    description: "AI-scripted mystery story — AI-generated imagery, ElevenLabs voiceover, and music compiled into a finished narrative video.",
-    videoUrl: "https://drive.google.com/file/d/1mQTwykZwKZbY3AzU1eIjsXYELoS-PYSI/view?usp=drive_link",
-    accentA: "#17191E",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Mystery Video 2",
-    category: "Storytelling",
-    tag: "AI-GENERATED",
-    description: "A second AI-scripted mystery piece, built the same way — AI imagery, voiceover, and music compiled into one edit.",
-    videoUrl: "https://drive.google.com/file/d/1kaz8dCLrUlzgQdeWHws72Rgaj149lRy9/view?usp=drive_link",
-    accentA: "#191A1F",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Doctors vs. Entrepreneurs — Comparison Edit",
-    category: "Storytelling",
-    tag: "COMPARISON",
-    description: "A comparison-style video weighing doctors' salaries against entrepreneurs' lifestyle and motivation.",
-    videoUrl: "https://drive.google.com/file/d/1amWFFC4UG5_bDHAywLm9sl4UaeVfH2O_/view?usp=sharing",
-    accentA: "#1E1B12",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Adrena Sports Agency Launch Video",
-    category: "Promotional",
-    tag: "LAUNCH",
-    description: "A launch announcement edit for a sports agency, cut for a confident, high-energy first impression.",
-    videoUrl: "https://drive.google.com/file/d/1-1K-lgNjC5k3Fa2Mhut4BqsuGvw_eJ4u/view?usp=drive_link",
-    accentA: "#221912",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Commentary Long-form",
-    category: "Commentary",
-    tag: "COMMENTARY",
-    description: "A commentary-style long-form edit — pacing and visuals built to carry the narration.",
-    videoUrl: "https://drive.google.com/file/d/1lGZLLwudqf7YhrNXOdx-PGxKNU8qnulS/view?usp=drive_link",
-    accentA: "#1A1C22",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Podcast Long-form — Prakhar Jain",
-    category: "Podcast Long-form",
-    tag: "PODCAST",
-    description: "A full-length podcast episode edit — clean cuts and steady pacing for a conversation-led format.",
-    videoUrl: "https://drive.google.com/file/d/1HfHfi0wyCYKInnTJMgDyaLWAjUxUgd4f/view?usp=sharing",
-    accentA: "#1D1A16",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Finance Podcast Short",
-    category: "Podcast",
-    tag: "PODCAST SHORT",
-    description: "A short-form clip cut from a finance podcast.",
-    videoUrl: "https://drive.google.com/file/d/1wqjGXT_GpWd3MVX70okxaBrNDuNbCfJu/view?usp=sharing",
-    accentA: "#1D1B14",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Documentary Sample Edit",
-    category: "Documentary",
-    tag: "DOCUMENTARY",
-    description: "A documentary-style sample edit — structure, pacing and clip selection for a narrative piece.",
-    videoUrl: "https://drive.google.com/file/d/1DsyR6sT-4s55rpTNXn6JQs-QyfTYFXkK/view?usp=sharing",
-    accentA: "#191C1E",
-    accentB: "#0F1013"
-  },
-  {
-    title: "Fashion Designer Ad Promo",
-    category: "Promotional",
-    tag: "AD PROMO",
-    description: "An ad promo edit for a fashion designer.",
-    videoUrl: "https://drive.google.com/file/d/1-OdsoKFI1NZYiIke00F-CniCgD7iBuyt/view?usp=sharing",
-    accentA: "#21191A",
-    accentB: "#0F1013"
-  }
+  { title: "Rowan Atkinson’s Funniest Interview Moments", category: "Interview Highlights", client: "11-11 Things", description: "Interview moments shaped around comic timing, reactions and pacing.", videoUrl: "https://drive.google.com/file/d/1RZ3tvGY-LcMu-BmZ9eawy99fcwpuF1wk/view?usp=drive_link", accentA: "#4B3A2A", accentB: "#191613" },
+  { title: "25 Insane Goals in FIFA 26", category: "Gaming", client: "11-11 Things", description: "A fast-paced selection of memorable FIFA goals.", videoUrl: "https://drive.google.com/file/d/18smF08hlW4tOt4Mi5bE-taFpW06H0b3m/view?usp=drive_link", accentA: "#253C38", accentB: "#11191D" },
+  { title: "NFL 2026: Best Plays & Big Moments", category: "Sports Highlights", client: "11-11 Things", description: "Sports highlights cut for pace, impact and a clear payoff.", videoUrl: "https://drive.google.com/file/d/1raz7088NFrWUgqmFku7KkonkTIbQHrGo/view?usp=drive_link", accentA: "#364254", accentB: "#12151D" },
+  { title: "The Growth Behind a Personal Brand", category: "Short-form", client: "Media B Agency", description: "A short-form profile about personal-brand growth; full edit using supplied footage and voiceover.", videoUrl: "https://drive.google.com/file/d/1ksd770_LF2oRhbBe5Lzj15Wv3LqJCEdK/view?usp=drive_link", accentA: "#6B5346", accentB: "#1D1918" },
+  { title: "A Veteran Reflects on Life During Deployment — Part 1", category: "Podcast Short-form", description: "A veteran shares deployment experiences in a podcast short.", videoUrl: "https://drive.google.com/file/d/12jtiapn0TbKi_MLmC6aFqXWpYzSFBwFZ/view?usp=sharing", accentA: "#49545A", accentB: "#171A1D" },
+  { title: "A Veteran Reflects on Life During Deployment — Part 2", category: "Podcast Short-form", description: "Continuation of the deployment conversation, edited as a separate video.", videoUrl: "https://drive.google.com/file/d/1hB07X0ReQh0Rjrk_-M23v5lXyiQ3vVVk/view?usp=drive_link", accentA: "#5D4B43", accentB: "#191515" },
+  { title: "A2Z Fintech — Podcast Short 1", category: "Podcast Short-form", client: "Utkarsh Agency", description: "A podcast moment shaped into a standalone short-form edit.", videoUrl: "https://drive.google.com/file/d/1uWKTa9-ZY1Vn9KQrY75ifT-wGV6nksVY/view?usp=drive_link", accentA: "#465A69", accentB: "#17191C" },
+  { title: "A2Z Fintech — Podcast Short 2", category: "Podcast Short-form", client: "Utkarsh Agency", description: "A second podcast moment edited as its own short-form video.", videoUrl: "https://drive.google.com/file/d/1Cz_ZdfY_PHhscXjstcP2IReg93WDEIFo/view?usp=drive_link", accentA: "#69564C", accentB: "#1A1717" },
+  { title: "Keystone Financial — Short 1", category: "Short-form", client: "Utkarsh Agency", description: "Short-form edit for Keystone Financial.", videoUrl: "https://drive.google.com/file/d/1gANkwjzQGQBiLoE1Mlu5lCZESOxfJMO-/view?usp=drive_link", accentA: "#4B625F", accentB: "#171B1B" },
+  { title: "Keystone Financial — Short 2", category: "Short-form", client: "Utkarsh Agency", description: "A second, separately edited Keystone Financial video.", videoUrl: "https://drive.google.com/file/d/1S9O2ratZ9DqXefqR_XFKlP9nS9jKozFJ/view?usp=drive_link", accentA: "#56475E", accentB: "#18151B" },
+  { title: "Keystone Financial — Short 3", category: "Short-form", client: "Utkarsh Agency", description: "A third, separately edited Keystone Financial video.", videoUrl: "https://drive.google.com/file/d/1j1fD2227bnOZR5r5bKP4Zo-6cbCWDYE4/view?usp=drive_link", accentA: "#6A5140", accentB: "#1C1715" },
+  { title: "Ryan Reynolds’ Funniest Interview Moments", category: "Interview Highlights", client: "11-11 Things", description: "A comedy interview edit shaped around the strongest moments and reactions.", videoUrl: "https://drive.google.com/file/d/1Ozqejo8xrIKJ3aRqdl1HQ_2851AnyVVF/view?usp=sharing", accentA: "#604C43", accentB: "#1B1716" },
+  { title: "Sameer Somal: A Documentary Story", category: "Documentary", description: "Documentary sample about Sameer Somal; sourcing and edit by Rubesh, with client-provided voiceover.", videoUrl: "https://drive.google.com/file/d/1i7iJVV_MsZCQ1-DoZi_lszYp10WMVLHq/view?usp=sharing", accentA: "#48585E", accentB: "#15191B" },
+  { title: "Jho Low — Documentary Sample", category: "Documentary", description: "Documentary sample on Jho Low; visuals sourced and edited by Rubesh, with supplied voiceover.", videoUrl: "https://drive.google.com/file/d/1DsyR6sT-4s55rpTNXn6JQs-QyfTYFXkK/view?usp=sharing", accentA: "#454D50", accentB: "#151719" },
+  { title: "From Sermon Footage to Final Cut", category: "Talking-head Sample", client: "JASJEMI", description: "A one-minute before-and-after sample showing raw talking-head footage beside the finished Christian sermon edit.", videoUrl: "https://drive.google.com/file/d/1s5nn0X3IuV5ZF8bIeX5_lSoFD0fnQEGw/view?usp=sharing", accentA: "#4B5C52", accentB: "#161B18" },
+  { title: "Real Estate Showreel", category: "Showreel", client: "Media B Agency", description: "A real estate showreel edit.", videoUrl: "https://drive.google.com/file/d/1s_6Cjqb8vQ8sYaZ-ckmw-vMp0VgL0H3g/view?usp=sharing", accentA: "#7A6251", accentB: "#1C1917" },
+  { title: "Gaming Long-form Sample 1", category: "Gaming Long-form", client: "GabesTheGame", description: "A long-form gaming sample edited from supplied gameplay footage.", videoUrl: "https://drive.google.com/file/d/131TOOeGxyLYL03hfvVh4wf0HcX2TSDq4/view?usp=sharing", accentA: "#3F4B48", accentB: "#151818" },
+  { title: "Gaming Long-form Sample 2", category: "Gaming Long-form", client: "GabesTheGame", description: "A second gaming sample, presented as its own long-form edit.", videoUrl: "https://drive.google.com/file/d/1aJuEj3DR-NHDQKq-rLRyzkE_s9aiq0cT/view?usp=sharing", accentA: "#4A4358", accentB: "#17151B" },
+  { title: "Adrena Sports Academy — Launch Film", category: "Brand Campaign", client: "Adrena Sports Academy", description: "Launch film with footage sourced by Rubesh; the agency supplied the logo.", videoUrl: "https://drive.google.com/file/d/1-1K-lgNjC5k3Fa2Mhut4BqsuGvw_eJ4u/view?usp=sharing", accentA: "#5B493B", accentB: "#191715" },
+  { title: "JASJEMI — Long-form Video 1", category: "YouTube Long-form", client: "JASJEMI", description: "Long-form Christian sermon channel edit; raw footage supplied.", videoUrl: "https://youtu.be/rXevhUJ-lNU?si=5cQBUS-lbsmxaN64", accentA: "#4D5B50", accentB: "#151916" },
+  { title: "JASJEMI — Long-form Video 2", category: "YouTube Long-form", client: "JASJEMI", description: "A second long-form channel edit; raw footage supplied.", videoUrl: "https://youtu.be/3wtu7ErKRJc?si=YOQPau7z9d3nCn7_", accentA: "#5B5145", accentB: "#191715" },
+  { title: "JASJEMI — Short-form Video 1", category: "Short-form", client: "JASJEMI", description: "Short-form edit for the JASJEMI channel.", videoUrl: "https://youtube.com/shorts/GWRE3Srp-mQ?si=VBASKlmonh6tD0En", accentA: "#4B5C52", accentB: "#161B18" },
+  { title: "JASJEMI — Short-form Video 2", category: "Short-form", client: "JASJEMI", description: "A second short-form edit for the JASJEMI channel.", videoUrl: "https://youtube.com/shorts/Ya3OBd8kHwM?si=btHi_yBE77pJAct_", accentA: "#5B5145", accentB: "#191715" }
 ];
 
 const CATEGORIES = [
-  {
-    title: "YouTube Long-form",
-    desc: "Full raw-footage edits — trimming, pacing, and structuring a video so it holds attention start to finish.",
-    icon: "play"
-  },
-  {
-    title: "Talking-head Content",
-    desc: "Cutting dead air, tightening delivery, and keeping a single-speaker video moving without losing the message.",
-    icon: "mic"
-  },
-  {
-    title: "Short-form",
-    desc: "Vertical cuts built from long-form footage or shot fresh, edited for a fast, scroll-stopping first few seconds.",
-    icon: "phone"
-  },
-  {
-    title: "Storytelling",
-    desc: "Structuring footage into a clear arc — setup, build, payoff — so the edit carries a narrative, not just a sequence of clips.",
-    icon: "book"
-  },
-  {
-    title: "Gaming",
-    desc: "Gameplay and face-cam sync, meme and SFX placement, and pulling the funniest moments out of long sessions.",
-    icon: "gamepad"
-  },
-  {
-    title: "Promotional Content",
-    desc: "Campaign-ready vertical and square deliverables for launches and announcements across platforms.",
-    icon: "megaphone"
-  },
-  {
-    title: "Basic Motion Graphics",
-    desc: "Typography, charts, maps, and simple UI animation — working knowledge, built one technique at a time.",
-    icon: "shapes"
-  }
-];
-
-const WHY = [
-  {
-    title: "Attention to detail",
-    desc: "Frame-accurate cuts, clean audio, and a pass to catch what the first watch missed.",
-    icon: "target"
-  },
-  {
-    title: "Pacing that holds",
-    desc: "A feel for when a clip has run its course and when a scene needs another second to land.",
-    icon: "pulse"
-  },
-  {
-    title: "Strong clip selection",
-    desc: "Picking the moment that matters out of hours of raw footage — especially for Shorts.",
-    icon: "scissors"
-  },
-  {
-    title: "Adapts to your style",
-    desc: "I match the tone and rhythm a client already has, rather than editing everything the same way.",
-    icon: "layers"
-  },
-  {
-    title: "Willing to learn",
-    desc: "If a job needs a technique I haven't used yet, I'll learn it properly rather than fake it.",
-    icon: "book"
-  },
-  {
-    title: "Reliable communication",
-    desc: "Clear updates, honest timelines, and revisions until the cut actually works for you.",
-    icon: "chat"
-  }
+  { title: "Long-form YouTube", desc: "Story-led edits with a clear structure, thoughtful pacing and a clean finish.", icon: "play" },
+  { title: "Podcast editing", desc: "Full conversations and short clips, shaped around the moments worth staying for.", icon: "mic" },
+  { title: "Short-form video", desc: "Focused vertical edits built for quick discovery and a strong opening.", icon: "phone" },
+  { title: "Documentary", desc: "Research, visual sourcing and editing assembled into a clear narrative.", icon: "book" },
+  { title: "Gaming", desc: "Gameplay edits paced for reactions, highlights and story.", icon: "gamepad" },
+  { title: "Brand films", desc: "Launch and promotional videos built around a brand’s message.", icon: "megaphone" },
+  { title: "Talking-head content", desc: "Raw speech shaped into an easy-to-follow, polished final edit.", icon: "mic" },
+  { title: "Motion graphics", desc: "Typography, graphic accents and simple motion to support the story.", icon: "shapes" }
 ];
 
 const CONTACT = [
-  {
-    label: "Email",
-    value: "rubeshkumar719@gmail.com",
-    href: "mailto:rubeshkumar719@gmail.com"
-  },
-  {
-    label: "Phone",
-    value: "+91 89253 07194",
-    href: "tel:+918925307194"
-  },
-  {
-    label: "Discord",
-    value: "soul07.",
-    href: null
-  }
+  { label: "Email", value: "rubeshkumar719@gmail.com", href: "mailto:rubeshkumar719@gmail.com" },
+  { label: "Phone", value: "+91 89253 07194", href: "tel:+918925307194" },
+  { label: "Discord", value: "soul07.", href: null }
 ];
 
-/* ---------------------------------------------------------------
-   Icons (minimal line-art, self-contained SVG strings)
-   --------------------------------------------------------------- */
 const ICONS = {
   play: `<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8V4z" stroke-linejoin="round"/></svg>`,
-  gamepad: `<svg viewBox="0 0 24 24"><path d="M6 8h12l2 9a2.5 2.5 0 0 1-4.4 2L14 17h-4l-1.6 2A2.5 2.5 0 0 1 4 17l2-9z" stroke-linejoin="round"/><path d="M9 11v3M7.5 12.5h3M16 11.5h.01M18.5 13.5h.01"/></svg>`,
+  gamepad: `<svg viewBox="0 0 24 24"><path d="M6 8h12l2 9a2.5 2.5 0 0 1-4.4 2L14 17h-4l-1.6 2A2.5 2.5 0 0 1 4 17l2-9z"/><path d="M9 11v3M7.5 12.5h3M16 11.5h.01M18.5 13.5h.01"/></svg>`,
   phone: `<svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg>`,
   mic: `<svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg>`,
-  megaphone: `<svg viewBox="0 0 24 24"><path d="M4 10v4a1 1 0 0 0 1 1h2l8 4V5l-8 4H5a1 1 0 0 0-1 1z"/><path d="M18 9a4 4 0 0 1 0 6"/></svg>`,
-  shapes: `<svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3.2"/><rect x="13" y="5" width="6" height="6" rx="1"/><path d="M6 20l3-6 3 6z" stroke-linejoin="round"/></svg>`,
-  target: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg>`,
-  pulse: `<svg viewBox="0 0 24 24"><path d="M3 12h4l2 6 4-14 2 8h6" stroke-linejoin="round" stroke-linecap="round"/></svg>`,
-  scissors: `<svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><path d="M8 7.5L20 19M8 16.5L20 5"/></svg>`,
-  layers: `<svg viewBox="0 0 24 24"><path d="M12 3l8 4.5-8 4.5-8-4.5L12 3z" stroke-linejoin="round"/><path d="M4 12l8 4.5 8-4.5M4 16.5L12 21l8-4.5" stroke-linejoin="round"/></svg>`,
-  book: `<svg viewBox="0 0 24 24"><path d="M4 5.5A2 2 0 0 1 6 4h6v16H6a2 2 0 0 0-2 1.5z"/><path d="M20 5.5A2 2 0 0 0 18 4h-6v16h6a2 2 0 0 1 2 1.5z"/></svg>`,
-  chat: `<svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-4 4V5z" stroke-linejoin="round"/></svg>`,
+  megaphone: `<svg viewBox="0 0 24 24"><path d="M4 10v4a1 1 0 0 0 1 1h2l8 4V5l-8 4H5a1 1 0 0 0-1 1zM18 9a4 4 0 0 1 0 6"/></svg>`,
+  shapes: `<svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3.2"/><rect x="13" y="5" width="6" height="6" rx="1"/><path d="M6 20l3-6 3 6z"/></svg>`,
+  book: `<svg viewBox="0 0 24 24"><path d="M4 5.5A2 2 0 0 1 6 4h6v16H6a2 2 0 0 0-2 1.5zM20 5.5A2 2 0 0 0 18 4h-6v16h6a2 2 0 0 1 2 1.5z"/></svg>`,
   external: `<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>`
 };
 
-/* ---------------------------------------------------------------
-   Render helpers
-   --------------------------------------------------------------- */
-
-/* Real thumbnail extraction — pulls an actual preview frame from
-   YouTube/Drive links when possible. Falls back cleanly to the
-   gradient placeholder if the image can't be loaded. */
-function getYouTubeId(url){
-  const patterns = [
-    /youtu\.be\/([a-zA-Z0-9_-]{6,})/,
-    /youtube\.com\/watch\?v=([a-zA-Z0-9_-]{6,})/,
-    /youtube\.com\/shorts\/([a-zA-Z0-9_-]{6,})/
-  ];
-  for (const p of patterns){
-    const m = url.match(p);
-    if (m) return m[1];
-  }
-  return null;
-}
-function getDriveId(url){
-  const m = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
-  return m ? m[1] : null;
-}
-function getThumbnail(url){
-  const yt = getYouTubeId(url);
-  if (yt) return {
-    src: `https://img.youtube.com/vi/${yt}/maxresdefault.jpg`,
-    fallback: `https://img.youtube.com/vi/${yt}/hqdefault.jpg`
-  };
-  const drive = getDriveId(url);
-  if (drive) return {
-    src: `https://drive.google.com/thumbnail?id=${drive}&sz=w1000`,
-    fallback: null
-  };
-  return null;
+function getYouTubeId(url) {
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/))([a-zA-Z0-9_-]{6,})/);
+  return match ? match[1] : null;
 }
 
-function renderProjectCard(p){
-  const isPlaceholder = p.videoUrl.startsWith("PLACEHOLDER");
-  const href = isPlaceholder ? "https://drive.google.com/drive/folders/1gELYybXj_yuTqgtXm9m1BJ4sITygjYiB?usp=sharing" : p.videoUrl;
-  const thumb = isPlaceholder ? null : getThumbnail(p.videoUrl);
-  const imgHtml = thumb
-    ? `<img class="project-card__thumb-img" src="${thumb.src}" alt="" loading="lazy" referrerpolicy="no-referrer"
-         onerror="${thumb.fallback
-           ? `this.onerror=function(){this.remove()};this.src='${thumb.fallback}';`
-           : `this.remove();`}">`
-    : "";
+function getThumbnail(url) {
+  const youtubeId = getYouTubeId(url);
+  if (youtubeId) return { src: `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` };
+  const driveMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  return driveMatch ? { src: `https://drive.google.com/thumbnail?id=${driveMatch[1]}&sz=w1000` } : null;
+}
+
+function renderProjectCard(project, index) {
+  const thumbnail = getThumbnail(project.videoUrl);
+  const image = thumbnail ? `<img class="project-card__thumb-img" src="${thumbnail.src}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
+  const client = project.client ? `<p class="project-card__client">${project.client}</p>` : "";
   return `
-  <article class="project-card" data-reveal>
-    <a href="${href}" target="_blank" rel="noopener" class="project-card__thumb" style="--thumb-a:${p.accentA};--thumb-b:${p.accentB}">
-      ${imgHtml}
-      <span class="project-card__thumb-overlay"></span>
-      <span class="project-card__tag">${p.tag}</span>
-      <span class="project-card__play">${ICONS.play}</span>
-    </a>
-    <div class="project-card__body">
-      <p class="project-card__category">${p.category}</p>
-      <h3 class="project-card__title">${p.title}</h3>
-      <p class="project-card__desc">${p.description}</p>
-      <a href="${href}" target="_blank" rel="noopener" class="project-card__watch">
-        ${isPlaceholder ? "View in archive" : "Watch"} ${ICONS.external}
-      </a>
-    </div>
-  </article>`;
-}
-
-// Display order for grouping the work section by category.
-// A category only renders a heading if at least one project has it.
-const WORK_CATEGORY_ORDER = [
-  "Commentary",
-  "Podcast",
-  "Documentary",
-  "YouTube Long-form",
-  "Talking-head Content",
-  "Short-form",
-  "Storytelling",
-  "Gaming",
-  "Promotional",
-  "Basic Motion Graphics",
-  "Podcast Long-form"
-];
-
-function renderProjects(){
-  const grid = document.getElementById("workGrid");
-
-  const groups = WORK_CATEGORY_ORDER
-    .map(cat => ({ category: cat, items: PROJECTS.filter(p => p.category === cat) }))
-    .filter(g => g.items.length > 0);
-
-  // Any project whose category isn't in the display order still gets shown,
-  // grouped under its own heading, appended after the ordered groups.
-  const knownCategories = new Set(WORK_CATEGORY_ORDER);
-  const leftoverCategories = [...new Set(PROJECTS.map(p => p.category).filter(c => !knownCategories.has(c)))];
-  leftoverCategories.forEach(cat => {
-    groups.push({ category: cat, items: PROJECTS.filter(p => p.category === cat) });
-  });
-
-  grid.innerHTML = groups.map(g => `
-    <div class="work-group">
-      <p class="work-group__title">${g.category}</p>
-      <div class="work-group__grid">
-        ${g.items.map(renderProjectCard).join("")}
+    <article class="project-card" data-category="${project.category}">
+      <span class="project-card__number">${String(index + 1).padStart(2, "0")}</span>
+      <div class="project-card__body">
+        <p class="project-card__category">${project.category}</p>
+        <h3 class="project-card__title">${project.title}</h3>
+        ${client}
+        <p class="project-card__desc">${project.description}</p>
       </div>
-    </div>
-  `).join("");
+      <a href="${project.videoUrl}" target="_blank" rel="noopener noreferrer" class="project-card__thumb" style="--thumb-a:${project.accentA};--thumb-b:${project.accentB}" aria-label="Open ${project.title}">
+        ${image}<span class="project-card__thumb-overlay"></span>
+      </a>
+      <a href="${project.videoUrl}" target="_blank" rel="noopener noreferrer" class="project-card__watch">Watch video ${ICONS.external}</a>
+    </article>`;
 }
 
-function renderCategories(){
+function renderProjects() {
+  const grid = document.getElementById("workGrid");
+  const filters = document.getElementById("workFilters");
+  const count = document.getElementById("workCount");
+  const categories = [...new Set(PROJECTS.map(project => project.category))];
+  const options = [{ label: "All videos", value: "all" }, ...categories.map(category => ({ label: category, value: category }))];
+
+  grid.innerHTML = PROJECTS.map(renderProjectCard).join("");
+  filters.innerHTML = options.map((option, index) => `<button class="work-filter${index === 0 ? " is-active" : ""}" type="button" data-filter="${option.value}" aria-pressed="${index === 0}">${option.label}</button>`).join("");
+
+  const applyFilter = value => {
+    let visible = 0;
+    grid.querySelectorAll(".project-card").forEach(card => {
+      const show = value === "all" || card.dataset.category === value;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+    filters.querySelectorAll(".work-filter").forEach(button => {
+      const active = button.dataset.filter === value;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    count.textContent = `${visible} video${visible === 1 ? "" : "s"}`;
+  };
+
+  filters.querySelectorAll(".work-filter").forEach(button => button.addEventListener("click", () => applyFilter(button.dataset.filter)));
+  applyFilter("all");
+}
+
+function renderCategories() {
   const grid = document.getElementById("categoriesGrid");
-  grid.innerHTML = CATEGORIES.map(c => `
-    <div class="category-card" data-reveal>
-      <div class="category-card__icon">${ICONS[c.icon]}</div>
-      <h3 class="category-card__title">${c.title}</h3>
-      <p class="category-card__desc">${c.desc}</p>
-    </div>
-  `).join("");
+  grid.innerHTML = CATEGORIES.map(category => `
+    <article class="category-card">
+      <div class="category-card__icon">${ICONS[category.icon]}</div>
+      <h3 class="category-card__title">${category.title}</h3>
+      <p class="category-card__desc">${category.desc}</p>
+    </article>`).join("");
 }
 
-function renderWhy(){
-  const grid = document.getElementById("whyGrid");
-  grid.innerHTML = WHY.map(w => `
-    <div class="why-item" data-reveal>
-      <div class="why-item__icon">${ICONS[w.icon]}</div>
-      <h3 class="why-item__title">${w.title}</h3>
-      <p class="why-item__desc">${w.desc}</p>
-    </div>
-  `).join("");
-}
-
-function renderContact(){
+function renderContact() {
   const wrap = document.getElementById("contactLinks");
-  wrap.innerHTML = CONTACT.map(c => {
-    if (c.href) {
-      return `
-      <a class="contact-link" href="${c.href}">
-        <span>
-          <span class="contact-link__label">${c.label}</span>
-          <span class="contact-link__value">${c.value}</span>
-        </span>
-        <span class="contact-link__go">${ICONS.external}</span>
-      </a>`;
-    }
-    return `
-      <button class="contact-link" type="button" data-copy="${c.value}">
-        <span>
-          <span class="contact-link__label">${c.label} — tap to copy</span>
-          <span class="contact-link__value">${c.value}</span>
-        </span>
-        <span class="contact-link__go">${ICONS.external}</span>
-      </button>`;
+  wrap.innerHTML = CONTACT.map(contact => {
+    const content = `<span><span class="contact-link__label">${contact.label}</span><span class="contact-link__value">${contact.value}</span></span><span class="contact-link__go">${ICONS.external}</span>`;
+    return contact.href
+      ? `<a class="contact-link" href="${contact.href}">${content}</a>`
+      : `<button class="contact-link" type="button" data-copy="${contact.value}"><span><span class="contact-link__label">${contact.label} · tap to copy</span><span class="contact-link__value">${contact.value}</span></span><span class="contact-link__go">${ICONS.external}</span></button>`;
   }).join("");
-
-  wrap.querySelectorAll("[data-copy]").forEach(btn => {
-    btn.addEventListener("click", async () => {
-      const val = btn.getAttribute("data-copy");
-      const label = btn.querySelector(".contact-link__label");
-      const original = label.textContent;
-      try {
-        await navigator.clipboard.writeText(val);
-        label.textContent = "Copied to clipboard";
-      } catch (e) {
-        label.textContent = val;
-      }
-      setTimeout(() => { label.textContent = original; }, 1800);
-    });
-  });
+  wrap.querySelectorAll("[data-copy]").forEach(button => button.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(button.dataset.copy); } catch (error) { /* The visible value remains available to copy manually. */ }
+  }));
 }
 
-/* ---------------------------------------------------------------
-   Ambient background parallax — subtle drift toward the cursor
-   --------------------------------------------------------------- */
-function initAmbientParallax(){
-  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-  const ambient = document.querySelector(".ambient-bg");
-  if (!ambient) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  window.addEventListener("mousemove", (e) => {
-    const mx = (e.clientX / window.innerWidth - 0.5) * 2;
-    const my = (e.clientY / window.innerHeight - 0.5) * 2;
-    ambient.style.transform = `translate3d(${mx * 16}px, ${my * 16}px, 0)`;
-  }, { passive: true });
-}
-
-/* ---------------------------------------------------------------
-   Custom cursor (desktop pointer devices only)
-   --------------------------------------------------------------- */
-function initCustomCursor(){
-  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-
-  const dot = document.getElementById("cursorDot");
-  const ring = document.getElementById("cursorRing");
-  if (!dot || !ring) return;
-
-  document.body.classList.add("has-custom-cursor");
-
-  let ringX = window.innerWidth / 2, ringY = window.innerHeight / 2;
-  let targetX = ringX, targetY = ringY;
-
-  window.addEventListener("mousemove", (e) => {
-    targetX = e.clientX;
-    targetY = e.clientY;
-    dot.style.transform = `translate(${targetX}px, ${targetY}px) translate(-50%, -50%)`;
-  });
-
-  function animateRing(){
-    ringX += (targetX - ringX) * 0.18;
-    ringY += (targetY - ringY) * 0.18;
-    ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
-
-  const hoverTargets = "a, button, .btn, [data-copy]";
-  document.addEventListener("mouseover", (e) => {
-    if (e.target.closest(hoverTargets)) ring.classList.add("is-hover");
-  });
-  document.addEventListener("mouseout", (e) => {
-    if (e.target.closest(hoverTargets)) ring.classList.remove("is-hover");
-  });
-}
-
-/* ---------------------------------------------------------------
-   Magnetic buttons — nudge toward the cursor within a small radius
-   --------------------------------------------------------------- */
-function initMagneticButtons(){
-  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-
-  document.querySelectorAll(".btn").forEach(btn => {
-    btn.addEventListener("mousemove", (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      btn.style.transform = `translate(${x * 0.22}px, ${y * 0.28}px)`;
-    });
-    btn.addEventListener("mouseleave", () => {
-      btn.style.transform = "";
-    });
-  });
-}
-
-/* ---------------------------------------------------------------
-   Scroll reveal — fades/rises elements marked [data-reveal] into view
-   --------------------------------------------------------------- */
-function initScrollReveal(){
-  const targets = document.querySelectorAll("[data-reveal]");
-  if (!targets.length) return;
-
-  if (!("IntersectionObserver" in window)){
-    targets.forEach(t => t.classList.add("is-visible"));
-    return;
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting){
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
-
-  targets.forEach(t => observer.observe(t));
-}
-
-/* ---------------------------------------------------------------
-   Nav active-section highlight
-   --------------------------------------------------------------- */
-function initNavHighlight(){
-  const sections = document.querySelectorAll("main section[id]");
-  const links = document.querySelectorAll(".nav__links a");
-  if (!sections.length || !links.length || !("IntersectionObserver" in window)) return;
-
-  const linkFor = id => [...links].find(a => a.getAttribute("href") === `#${id}`);
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const link = linkFor(entry.target.id);
-      if (!link) return;
-      if (entry.isIntersecting) {
-        links.forEach(a => a.classList.remove("is-active"));
-        link.classList.add("is-active");
-      }
-    });
-  }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
-
-  sections.forEach(s => observer.observe(s));
-}
-
-/* ---------------------------------------------------------------
-   Nav (mobile menu)
-   --------------------------------------------------------------- */
-function initNav(){
+function initNav() {
   const toggle = document.getElementById("navToggle");
   const menu = document.getElementById("mobileMenu");
   toggle.addEventListener("click", () => {
     const open = menu.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   });
-  menu.querySelectorAll("a").forEach(a => {
-    a.addEventListener("click", () => {
-      menu.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-    });
-  });
+  menu.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+    menu.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+  }));
 }
 
-/* ---------------------------------------------------------------
-   Scroll-linked timeline rail + timecode readout
-   Treats the full page scroll as a timeline (mm:ss:ff at 24fps)
-   over an arbitrary 3-minute "reel" length — purely a visual/
-   navigational cue, not a real video duration.
-   --------------------------------------------------------------- */
-function initTimelineRail(){
-  const playhead = document.getElementById("playhead");
-  const readout = document.getElementById("timecodeReadout");
-  if (!playhead || !readout) return;
-
-  const REEL_SECONDS = 180;
-  const FPS = 24;
-  let ticking = false;
-
-  function format(t){
-    const h = Math.floor(t / 3600);
-    const m = Math.floor((t % 3600) / 60);
-    const s = Math.floor(t % 60);
-    const f = Math.floor((t * FPS) % FPS);
-    const pad = n => String(n).padStart(2, "0");
-    return `${pad(h)}:${pad(m)}:${pad(s)}:${pad(f)}`;
-  }
-
-  function update(){
-    const doc = document.documentElement;
-    const max = doc.scrollHeight - doc.clientHeight;
-    const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-    playhead.style.top = `${progress * 100}%`;
-    readout.textContent = format(progress * REEL_SECONDS);
-    ticking = false;
-  }
-
-  update();
-  window.addEventListener("scroll", () => {
-    if (!ticking){
-      requestAnimationFrame(update);
-      ticking = true;
-    }
-  }, { passive: true });
-  window.addEventListener("resize", update);
+function initScrollReveal() {
+  const targets = document.querySelectorAll("[data-reveal]");
+  if (!("IntersectionObserver" in window)) { targets.forEach(target => target.classList.add("is-visible")); return; }
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); }
+  }), { threshold: 0.15, rootMargin: "0px 0px -35px 0px" });
+  targets.forEach(target => observer.observe(target));
 }
 
-/* ---------------------------------------------------------------
-   Init
-   --------------------------------------------------------------- */
+function initNavHighlight() {
+  const sections = document.querySelectorAll("main section[id]");
+  const links = document.querySelectorAll(".nav__links a");
+  if (!sections.length || !links.length || !("IntersectionObserver" in window)) return;
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    links.forEach(link => link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`));
+  }), { rootMargin: "-45% 0px -45% 0px" });
+  sections.forEach(section => observer.observe(section));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   renderCategories();
-  renderWhy();
   renderContact();
   initNav();
-  initTimelineRail();
-  initCustomCursor();
-  initAmbientParallax();
-  initMagneticButtons();
   initScrollReveal();
   initNavHighlight();
-
-  const yearEl = document.getElementById("footerYear");
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  const year = document.getElementById("footerYear");
+  if (year) year.textContent = String(new Date().getFullYear());
 });
