@@ -1,5 +1,6 @@
 /* Portfolio content and interactions. Working titles can be refined later. */
 const PROJECTS = [
+  { title: "Tech Talking head video edit", category: "Talking-head Sample", description: "Tech talking-head video edit shaped for clean pacing, clarity and engagement.", videoUrl: "https://drive.google.com/file/d/1mruTm_azQE_BaMH0wEMNaOXUq8F1n6l3/view?usp=sharing", accentA: "#3D4C5C", accentB: "#15191E" },
   { title: "Rowan Atkinson’s Funniest Interview Moments", category: "Interview Highlights", client: "11-11 Things", description: "Interview moments shaped around comic timing, reactions and pacing.", videoUrl: "https://drive.google.com/file/d/1RZ3tvGY-LcMu-BmZ9eawy99fcwpuF1wk/view?usp=drive_link", accentA: "#4B3A2A", accentB: "#191613" },
   { title: "25 Insane Goals in FIFA 26", category: "Gaming", client: "11-11 Things", description: "A fast-paced selection of memorable FIFA goals.", videoUrl: "https://drive.google.com/file/d/18smF08hlW4tOt4Mi5bE-taFpW06H0b3m/view?usp=drive_link", accentA: "#253C38", accentB: "#11191D" },
   { title: "NFL 2026: Best Plays & Big Moments", category: "Sports Highlights", client: "11-11 Things", description: "Sports highlights cut for pace, impact and a clear payoff.", videoUrl: "https://drive.google.com/file/d/1raz7088NFrWUgqmFku7KkonkTIbQHrGo/view?usp=drive_link", accentA: "#364254", accentB: "#12151D" },
